@@ -33,6 +33,10 @@ func _process(delta):
 		enemyCooldown = enemycd;
 	else:
 		enemyCooldown -= delta
+	
+	if(health == 0):
+		get_tree().set_pause(true)
+		pass
 	get_node("UI/Label").text = "Power Level = "+str(powerlevel)
 	if(health != 200):
 		get_node("UI/HealthLabel").text = "Health = "+str(health)

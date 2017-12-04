@@ -25,13 +25,23 @@ func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	velocity.y = speed * delta 
-	move_and_collide(velocity)
+	var n = move_and_collide(velocity)
+	if (n != null):
+		var colliderObject = n.collider
+		if(colliderObject.has_meta("type")):
+			if(colliderObject.get_meta("type") == "deathwall" || colliderObject.get_meta("type") == "player"):
+				#world.get_node("Sound").play("hit", true)
+				world.health -= 1
+				queue_free()
+				#pierce -= 1
+				#world.freezeFrames = 0.1
+				#world.get_node("Camera2D").shake(0.5, 10, 1.5)
 	pass
 
 func _die():
-	var amount = rand_range(1,3)
+	var amount = rand_range(1,4)
 	for i in range(0, amount):
-		var rand = rand_range(0,2)
+		var rand = rand_range(0,10)
 		var localNode
 		if(rand > 1):
 			localNode = pickPrefab.instance()

@@ -21,7 +21,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	self.scale = Vector2(1+world.powerlevel,1+world.powerlevel)
+	self.scale = Vector2(1.5+world.powerlevel/2,1.5+world.powerlevel/2)
 	ATTACKCD = ATTACKCDBASE / world.powerlevel
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
@@ -75,5 +75,8 @@ func _process(delta):
 				#pierce -= 1
 				#world.freezeFrames = 0.1
 				#world.get_node("Camera2D").shake(0.5, 10, 1.5)
+			if(colliderObject.get_meta("type") == "enemy"):
+				colliderObject.queue_free()
+				world.health -= 1
 
 	
