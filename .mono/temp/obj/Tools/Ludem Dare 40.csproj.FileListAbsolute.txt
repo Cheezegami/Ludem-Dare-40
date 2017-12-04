@@ -1,0 +1,6 @@
+D:\Stuff\Godot\Projects\Ludem Dare 40\.mono\temp\bin\Tools\Ludem Dare 40.dll
+D:\Stuff\Godot\Projects\Ludem Dare 40\.mono\temp\bin\Tools\Ludem Dare 40.pdb
+D:\Stuff\Godot\Projects\Ludem Dare 40\.mono\temp\obj\Tools\Ludem Dare 40.csprojResolveAssemblyReference.cache
+D:\Stuff\Godot\Projects\Ludem Dare 40\.mono\temp\obj\Tools\Ludem Dare 40.csproj.CoreCompileInputs.cache
+D:\Stuff\Godot\Projects\Ludem Dare 40\.mono\temp\obj\Tools\Ludem Dare 40.dll
+D:\Stuff\Godot\Projects\Ludem Dare 40\.mono\temp\obj\Tools\Ludem Dare 40.pdb
