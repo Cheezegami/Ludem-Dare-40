@@ -1,13 +1,25 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/FriendlyProjectile.gd" type="Script" id=1]
 [ext_resource path="res://images/particle/explosion.material" type="Material" id=2]
+
+[sub_resource type="GDScript" id=11]
+
+script/source = "extends CanvasItemMaterial
+onready var parent = get_parent()
+
+func _ready():
+	pass
+
+func _process(delta):
+	self.scale  = parent.scale"
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
 render_priority = 0
 blend_mode = 1
 light_mode = 0
+script = SubResource( 11 )
 
 [sub_resource type="Curve" id=2]
 
@@ -58,7 +70,7 @@ flag_rotate_y = false
 flag_disable_z = true
 spread = 180.0
 flatness = 0.0
-gravity = Vector3( 0, -30, 0 )
+gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1.0
 initial_velocity_random = 0.0
 angular_velocity = 1.0

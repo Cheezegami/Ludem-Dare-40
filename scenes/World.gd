@@ -4,6 +4,7 @@ var enemycd = 2
 var enemyCooldown = 0
 var enemyCount = 0
 var powerlevel = 1
+var health = 100
 
 var enemyPrefab = preload("res://scenes/Enemy.tscn")
 # class member variables go here, for example:
@@ -32,4 +33,8 @@ func _process(delta):
 		enemyCooldown = enemycd;
 	else:
 		enemyCooldown -= delta
-	get_node("Label").text = "Power Level = "+str(powerlevel)
+	get_node("UI/Label").text = "Power Level = "+str(powerlevel)
+	if(health != 200):
+		get_node("UI/HealthLabel").text = "Health = "+str(health)
+	else:
+		get_node("UI/HealthLabel").text = "Health = "+str(health)+"(max)"

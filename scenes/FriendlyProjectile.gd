@@ -1,9 +1,11 @@
 extends Node2D
 var speed = 200
+var speedCalc;
 var velocity = Vector2(0,0)
 onready var world = get_parent()
 var timeLeft = 12
 var alive = true
+onready var particles = get_node("Particles2D")
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
@@ -18,7 +20,11 @@ func _process(delta):
 	
 	if(alive):
 		self.scale  = Vector2(world.powerlevel / 2,world.powerlevel / 2)
-		velocity.y = -speed * delta
+		var pmaterial = particles.process_material
+		pmaterial.scale = self.scale.x
+		particles.process_material = pmaterial
+		speedCalc = -speed * delta
+		velocity = (Vector2(cos(rotation), sin(rotation)) * speedCalc)
 		# Called every frame. Delta is time since last frame.
 		# Update game logic here.
 		var n = move_and_collide(velocity)

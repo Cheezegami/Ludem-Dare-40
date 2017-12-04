@@ -39,4 +39,5 @@ func _die():
 	queue_free()
 	
 func upgrade():
-	world.powerlevel += 0.04
+	if(world.health < 200):
+		world.health += 1

@@ -57,6 +57,8 @@ func _process(delta):
 		var instance_node = get_parent().get_node("PlayerProjectile"+str(attackCount))
 		instance_node.add_collision_exception_with(self)
 		instance_node.position = self.position + Vector2(0,-32)
+		instance_node.rotate(rand_range(PI/2-(world.powerlevel/25),PI/2+(world.powerlevel/25)))
+		#instance_node.rotate(rand_range(-world.powerlevel*2,world.powerlevel*2))
 		#instance_node.projVelocity += Vector2(0, -1) + (velocity * 0.3)
 		attackCount += 1
 		attackCD = ATTACKCD
@@ -67,11 +69,11 @@ func _process(delta):
 		var colliderObject = n.collider
 		if(colliderObject.has_meta("type")):
 			if(colliderObject.get_meta("type") == "pickup"):
-				upgrade()
+				colliderObject.upgrade()
 				#world.get_node("Sound").play("hit", true)
 				colliderObject._die()
 				#pierce -= 1
 				#world.freezeFrames = 0.1
 				#world.get_node("Camera2D").shake(0.5, 10, 1.5)
-func upgrade():
-	world.powerlevel += upgrade_value
+
+	
